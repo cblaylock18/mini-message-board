@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/styles.css" />
+    </head>
+    <body>
+        <h1><%= title %></h1>
+        <a href="/new" class="newMessage">Post a New Message</a>
+        <main>
+            <% if(messages) { %> <%messages.forEach((message, index) => {%> <%-
+            include("message", {message: message, index: index})%> <% } )}%>
+        </main>
+    </body>
+</html>
