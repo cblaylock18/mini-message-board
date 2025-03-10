@@ -5,10 +5,7 @@ import dotenv from "dotenv";
 // Load environment variables
 dotenv.config();
 
-const connectionString =
-    process.env.NODE_ENV === "production"
-        ? process.env.INTERNAL_DB_LINK
-        : process.env.DATABASE_URL_PUBLIC;
+const connectionString = process.env.DATABASE_URL;
 
 if (!connectionString) {
     throw new Error("❌ DATABASE_URL is missing! Check your .env file.");
