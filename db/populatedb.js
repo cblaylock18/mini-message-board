@@ -3,10 +3,7 @@ dotenv.config();
 import pkg from "pg";
 const { Client } = pkg;
 
-const connectionString =
-    process.env.NODE_ENV === "production"
-        ? process.env.DATABASE_URL_INTERNAL
-        : process.env.DATABASE_URL_PUBLIC;
+const connectionString = process.env.DATABASE_URL;
 
 const SQL = `
 CREATE TABLE IF NOT EXISTS messages (
