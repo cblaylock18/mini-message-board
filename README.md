@@ -19,10 +19,10 @@ A simple Express-based message board application that lets users view sample mes
 ## Features
 
 -   **Dynamic Message Listing:** Displays a list of messages with details such as the message text, author, and the time it was added.
--   **Add New Message:** Provides a form at `/new` where users can submit a new message, which is added to an in-memory messages array.
--   **Message Details:** Each message includes a button that links to a dedicated page with full message details.
+-   **Add New Message:** Provides a form at `/new` where users can submit a new message, which is saved to a PostgreSQL database.
+-   **Message Details:** Each message includes a link to a dedicated page with full message details.
 -   **Express & EJS Templating:** Uses Express for routing and EJS for rendering dynamic HTML views.
--   **In-Memory Data Storage:** Stores messages in an array (data will reset on server restart).
+-   **Persistent Data Storage:** Messages are stored in a PostgreSQL database so that data persists across server restarts.
 
 ---
 
@@ -41,6 +41,7 @@ Access the live demo here: [Mini Message Board Live Demo](http://mini-message-bo
 -   **EJS**
 -   **JavaScript (ES6+)**
 -   **CSS**
+-   **PostgreSQL** (via `pg` for database integration)
 -   **Express Middleware**
 
 ---
@@ -55,16 +56,12 @@ Access the live demo here: [Mini Message Board Live Demo](http://mini-message-bo
 
 ## Future Improvements
 
--   **Persistent Data Storage:**  
-    Integrate a database to persist messages beyond server restarts.
 -   **Edit & Delete Functionality:**  
     Allow users to update or remove existing messages.
 -   **Enhanced UI/UX:**  
     Improve styling and responsiveness.
 -   **User Authentication:**  
     Add login functionality for a personalized experience.
--   **Deployment Enhancements:**  
-    Explore more robust deployment options for public access.
 
 ---
 
