@@ -1,9 +1,9 @@
+import { config } from "dotenv";
+config();
 import express from "express";
-import { newMessageRouter } from "./routes/newMessageRouter.js";
-import { messageDetailsRouter } from "./routes/messageDetailsRouter.js";
+import { messagesRouter } from "./routes/messagesRouter.js";
 import path from "node:path";
 import { fileURLToPath } from "url";
-import { messages } from "./messages.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,17 +14,7 @@ const assetsPath = path.join(__dirname, "public");
 app.use(express.static(assetsPath));
 app.use(express.urlencoded({ extended: true }));
 
-const PORT = 3000;
+app.use("/", messagesRouter);
 
-app.use("/new", newMessageRouter);
-
-app.use("/messagedetails", messageDetailsRouter);
-
-app.use("/", (req, res) => {
-    res.render("index", {
-        title: "Mini Messageboard",
-        messages: messages,
-    });
-});
-
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Up and running on PORT: ${PORT}`));
