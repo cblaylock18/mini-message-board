@@ -7,7 +7,7 @@ dotenv.config();
 
 const connectionString =
     process.env.NODE_ENV === "production"
-        ? process.env.DATABASE_URL_INTERNAL
+        ? process.env.INTERNAL_DB_LINK
         : process.env.DATABASE_URL_PUBLIC;
 
 if (!connectionString) {
